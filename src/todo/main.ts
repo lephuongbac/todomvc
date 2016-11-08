@@ -10,14 +10,10 @@ export interface IData {
     value?: b.IBobrilChildren;
 }
 
-interface ICtx extends b.IBobrilCtx {
-    data: IData;
-}
-
-export default f.createComponent<state.ITodo[]>({
-    render(ctx: f.IContext<state.ITodo[]>, me: b.IBobrilNode) {
+export default f.createComponent<state.ITodosState>({
+    render(ctx: f.IContext<state.ITodosState>, me: b.IBobrilNode) {
         me.tag = 'section';
-        me.children = createMain(ctx.state);
+        me.children = createMain(ctx.state.todos);
         b.style(me, mainStyle);
     }
 });

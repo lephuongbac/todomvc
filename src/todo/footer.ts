@@ -34,13 +34,13 @@ function createCount(count: number): b.IBobrilNode {
     return b.style(countLabel, countStyle);
 }
 
-function createFilters(): b.IBobrilNode {
+function createFilters(): b.IBobrilNode {    
     let filter: b.IBobrilNode = {
         tag: 'ul',
         children: [
-            createLink('All', '#/'),
-            createLink('Active', '#/active'),
-            createLink('Completed', '#/completed')
+            createLink('All', ''),
+            createLink('Active', 'todoActive'),
+            createLink('Completed', 'todoCompleted')
         ]
     }
     return b.style(filter, filterStyle);

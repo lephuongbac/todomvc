@@ -1,20 +1,17 @@
 import * as b from 'bobril';
 
-export default b.createComponent<IButtonData>({
-    render(ctx: IButtonCtx, me: b.IBobrilNode) {
-        me.children = ctx.data.label;
-        me.tag = 'a';
-        me.attrs = {
-            href: ctx.data.label
-        };
-    }
-});
+export default (data: IButtonData): b.IBobrilNode => {
+    let link: b.IBobrilNode = {
+        tag: 'a',
+        children: data.label,
+        attrs: {
+            href: '#/'
+        }
+    };
+    return data.link ? b.link(link, data.link) : link;
+}
 
 export interface IButtonData {
     label: string;
     link: string;
-}
-
-interface IButtonCtx extends b.IBobrilCtx {
-    data: IButtonData;
 }

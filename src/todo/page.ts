@@ -5,9 +5,15 @@ import { default as header } from './header';
 import { default as footer } from './footer';
 import { default as main } from './main';
 import * as c from './cursor';
+import * as todoAction from './actions/todo';
 
 export let create = f.createRouteComponent<state.ITodosState, any>({
+    init(ctx: f.IContext<state.ITodosState>): void {
+        console.log('init');
+        todoAction.restoreTodo();
+    },
     render(ctx: f.IContext<state.ITodosState>, me: b.IBobrilNode, _oldMe?: b.IBobrilCacheNode): void {
+        console.log('render');        
         let contents = [
             headerFactory()
         ];
@@ -20,7 +26,7 @@ export let create = f.createRouteComponent<state.ITodosState, any>({
 });
 
 const headerFactory = header(c.editedTodoCursor);
-const mainFactory = main(c.todosCursor);
+const mainFactory = main(c.rootCursor);
 const footerFactory = footer(c.todosCursor);
 
 const todoAppStyle = b.styleDef('todoapp');
