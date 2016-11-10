@@ -5,7 +5,7 @@ node_js:
 before_install:
 - npm install -g bobril-build
 install:
-- bb -b
+- bb b
 after_success:
 - bash ./scripts/deploy.sh
 env:
