@@ -5,11 +5,7 @@ node_js:
 before_install:
 - npm install -g bobril-build
 install:
-- bb
-before_script:
-- npm install -g gulp
-- npm install node-qunit-phantomjs
-script: gulp test
+- bb -b
 after_success:
 - bash ./scripts/deploy.sh
 env:
