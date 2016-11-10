@@ -1,0 +1,15 @@
+sudo: false
+language: node_js
+node_js:
+- 6
+before_install:
+- npm install -g bobril-build
+install:
+- bb b
+after_success:
+- bash ./scripts/deploy.sh
+env:
+  global:
+  - GH_USER: lephuongbac
+  - GH_REPO: todomvc
+  - secure: L+tMljNKXJwt6W5cri9a6lMRToAn4X4bG7t/Q+SQviFsQC9keq4VSddYAYE5Atb+00Z/AUgR5lT4jR4aHzg/67SHnpZKH3OW5sMI7JOG8zg7+flif3CWkJ8sXWnKD0g/S9fv1Q4k8jcQ0Li7R/GuZ3U4P6EqXkrnQJRLyV+fElIfWcZaq8nUsF43aYhKXyu2JGd/CSbTegAdacOcmPnmOBvluZK2dpxSLw49Ggc6eaiedtoQVdo/D7roty8jlndcJ/isUND7ojaWxQDLek2n2kYAwo/RpWIzaFKEoKW39GrJaoQJUHfclnZic0pIW5H4vYEa5kIN11n5jKE07A7P5vLD+fBprjrEEYWQb98aYuUJ7S5Z8rjMff2TisosdTIrz6dKNe8afSB3MNSY5cHrALCmMaVCLOsBKiEBhE45UhlKSHMjT9SOvkEl43zfk9K2mfznUd3/Jb+VXHRei/tlxQ4x5bcBmPWROUQdqeBosqZtqJx5RK8CNBxo8q43sk6CurujeZvcyMGgve+NCggbH6GVeb8Trdk4cD3JNyFD2Kr8GSrAKwOc60vDS7R96QrSEP65n7ntidNQMPw2dJFTzY3AQ8iOK1zlksSrO7JioteeX4mBVKHJv+wW8sAG6WeE9Uk/tZGc83HMPt19O2d2qqeLplrlapwCBn1YNFKdSZA=

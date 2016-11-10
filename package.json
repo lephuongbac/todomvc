@@ -7,8 +7,7 @@
     "main": "src/app.ts"
   },
   "bobril": {
-    "title": "Bobril • TodoMVC",
-    "additionalResourcesDirectory": "assets-app"
+    "title": "Bobril • TodoMVC"
   },
   "author": "baclephuong",
   "license": "ISC",
