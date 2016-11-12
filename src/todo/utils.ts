@@ -1,6 +1,5 @@
 class Utils {
     public static store(namespace: string, data?: any) {
-        console.log(data);
         if (data) {
             return localStorage.setItem(namespace, JSON.stringify(data));
         }

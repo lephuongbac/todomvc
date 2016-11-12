@@ -1,8 +1,8 @@
 import * as b from 'bobril';
 
 export interface IData {
-    value: string;
-    onClick?: () => void;
+    onChange?: (value: boolean) => void;
+    isChecked?: boolean;
 }
 
 interface ICtx extends b.IBobrilCtx {
@@ -14,12 +14,12 @@ export default b.createComponent<IData>({
         me.tag = 'input';
         me.attrs = {
             type: 'checkbox',
-            value: ctx.data.value
+            checked: ctx.data.isChecked
         };
         b.style(me, checkboxStyle);
     },
-    onClick(ctx: ICtx) {
-        ctx.data.onClick && ctx.data.onClick();
+    onChange(ctx: ICtx, value: boolean) {
+        ctx.data.onChange && ctx.data.onChange(value);
         return true;
     }
 });

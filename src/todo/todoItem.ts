@@ -32,9 +32,8 @@ function createToggle(ctx: ICtx): b.IBobrilNode {
     return b.style(
         gui.checkbox({
             isChecked: ctx.data.isChecked,
-            onClick: () => {
+            onChange: () => {
                 ctx.data.onCheck && ctx.data.onCheck();
-                return true;
             }
         }),
         toggleStyle
