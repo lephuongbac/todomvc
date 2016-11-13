@@ -1,16 +1,35 @@
 import * as f from 'bobflux';
 import * as s from '../state';
 import * as c from '../cursor';
+import { Utils } from '../utils';
 
-export let addTodo = f.createAction<s.ITodosState, any>(c.rootCursor, (state) =>
+const storeKey = 'todomvc';
+
+export let restoreTodo = f.createAction<s.ITodosState, any>(c.rootCursor, (state) =>
     f.shallowCopy(state, (section) => {
-        section.todos = [
-            { id: new Date().getTime(), isDone: false, name: section.editedTodo.name },
-            ...section.todos
-        ];
-        section.editedTodo = { id: null, name: '', isDone: false };
+        section.todos = Utils.store(storeKey);
     })
 );
+
+export let updateNowShowing = f.createAction<s.ITodosState, string>(c.rootCursor, (state, nowShowing) => {
+    let newState = f.shallowCopy(state);
+    newState.nowShowing = nowShowing;
+    return newState;
+});
+
+export let addTodo = f.createAction<s.ITodosState, any>(c.rootCursor, (state) => {
+    let newState = f.shallowCopy(state);
+    let name = newState.editedTodo.name.trim();
+    if (name) {
+        newState.todos = [
+            { id: new Date().getTime(), isDone: false, name: newState.editedTodo.name.trim() },
+            ...newState.todos
+        ];
+        newState.editedTodo = { id: null, name: '', isDone: false };
+        Utils.store(storeKey, newState.todos);
+    }
+    return newState;
+});
 
 export let updateNewTodoName = f.createAction<s.ITodo, string>(c.editedTodoCursor, (todo, name) =>
     f.shallowCopy(todo, (t) => {
@@ -23,23 +42,29 @@ export let removeTodo = f.createAction<s.ITodo[], number>(c.todosCursor, (todos,
 });
 
 export let checkTodo = f.createAction<s.ITodo[], number>(c.todosCursor, (todos, id) => {
-    return [...todos.map(t => {
+    let newTodos = [...todos.map(t => {
         if (t.id === id) {
             t.isDone = !t.isDone;
         }
         return t;
     })];
+    Utils.store(storeKey, newTodos);
+    return newTodos;
 });
 
-export let toggleTodo = f.createAction<s.ITodo[], any>(c.todosCursor, (todos) => {
-    return [...todos.map(t => {
-        t.isDone = true;
+export let toggleTodo = f.createAction<s.ITodo[], boolean>(c.todosCursor, (todos, checked) => {
+    let newTodos = [...todos.map(t => {
+        t.isDone = checked;
         return t;
     })];
+    Utils.store(storeKey, newTodos);
+    return newTodos;
 });
 
 export let clearCompleted = f.createAction<s.ITodo[], any>(c.todosCursor, (todos) => {
-    return todos.filter(t => {
+    let newTodos = todos.filter(t => {
         return !t.isDone;
     });
+    Utils.store(storeKey, newTodos);
+    return newTodos;
 });
