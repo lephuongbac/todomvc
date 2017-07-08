@@ -10,4 +10,3 @@ export const createDefaultApplicationState = (): IApplicationState => {
         todos: createDefaultTodosState()
     };
 }
-

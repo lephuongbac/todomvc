@@ -1,4 +1,4 @@
-class Utils {
+export class Utils {
     public static store(namespace: string, data?: any) {
         if (data) {
             return localStorage.setItem(namespace, JSON.stringify(data));
@@ -8,4 +8,3 @@ class Utils {
         return (store && JSON.parse(store)) || [];
     }
 }
-export { Utils };

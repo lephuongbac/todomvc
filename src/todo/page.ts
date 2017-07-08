@@ -4,14 +4,14 @@ import * as state from './state';
 import { default as header } from './containers/header';
 import { default as footer } from './containers/footer';
 import { default as main } from './containers/main';
-import * as c from './cursor';
+import * as c from './state.cursors';
 import * as todoAction from './actions/todo';
 
 export let createMainPage = b.createComponent({
-    init(ctx: b.IBobrilCtx): void {
+    init(): void {
         todoAction.restoreTodo();
     },
-    render(ctx: b.IBobrilCtx, me: b.IBobrilNode, _oldMe?: b.IBobrilCacheNode): void {
+    render(_ctx: b.IBobrilCtx, me: b.IBobrilNode): void {
         me.tag = 'section';
         me.children = [
             headerFactory(),

@@ -1,14 +1,5 @@
 import * as b from 'bobril';
 
-export interface IData {
-    onChange?: (value: boolean) => void;
-    isChecked?: boolean;
-}
-
-interface ICtx extends b.IBobrilCtx {
-    data: IData;
-}
-
 export default b.createComponent<IData>({
     render(ctx: ICtx, me: b.IBobrilNode) {
         me.tag = 'input';
@@ -23,5 +14,14 @@ export default b.createComponent<IData>({
         return true;
     }
 });
+
+export interface IData {
+    onChange?: (value: boolean) => void;
+    isChecked?: boolean;
+}
+
+interface ICtx extends b.IBobrilCtx {
+    data: IData;
+}
 
 const checkboxStyle = b.styleDef('toggle-all');

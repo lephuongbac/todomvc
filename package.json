@@ -7,15 +7,24 @@
     "main": "src/app.ts"
   },
   "bobril": {
-    "title": "Bobril • TodoMVC"
+    "title": "Bobril • TodoMVC",
+    "compilerOptions": {
+      "noImplicitAny": true,
+      "noImplicitThis": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "strictNullChecks": true
+    }
   },
   "author": "baclephuong",
   "license": "ISC",
   "dependencies": {
-    "bobril": "^4.49.1",
-    "bobflux": "^5.2.0",
-    "bobril-g11n": "^2.1.3",
-    "todomvc-app-css": "^2.0.6",
-    "todomvc-common": "^1.0.2"
+    "bobril": "*",
+    "bobflux": "*",
+    "bobril-g11n": "*",
+    "todomvc-app-css": "*",
+    "todomvc-common": "*"
   }
 }

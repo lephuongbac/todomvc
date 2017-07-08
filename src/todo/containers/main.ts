@@ -7,10 +7,6 @@ import { default as toggleCheckbox } from './toggleCheckbox';
 import * as todoAction from './../actions/todo';
 import { ACTIVE_TODOS, COMPLETED_TODOS } from './../constants';
 
-export interface IData {
-    value?: b.IBobrilChildren;
-}
-
 export default f.createComponent<state.ITodosState>({
     render(ctx: f.IContext<state.ITodosState>, me: b.IBobrilNode) {
         me.tag = 'section';
@@ -18,6 +14,10 @@ export default f.createComponent<state.ITodosState>({
         b.style(me, mainStyle);
     }
 });
+
+export interface IData {
+    value?: b.IBobrilChildren;
+}
 
 const mainStyle = b.styleDef('main');
 

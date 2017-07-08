@@ -1,17 +1,6 @@
 import * as b from 'bobril';
 import * as gui from './../../components/gui';
 
-export interface IData {
-    value?: string;
-    isChecked: boolean;
-    onCheck: () => void;
-    onDelete: () => void;
-}
-
-interface ICtx extends b.IBobrilCtx {
-    data: IData;
-}
-
 export default b.createComponent<IData>({
     render(ctx: ICtx, me: b.IBobrilNode) {
         me.tag = 'li';
@@ -27,6 +16,17 @@ export default b.createComponent<IData>({
         }
     }
 });
+
+export interface IData {
+    value: string;
+    isChecked: boolean;
+    onCheck: () => void;
+    onDelete: () => void;
+}
+
+interface ICtx extends b.IBobrilCtx {
+    data: IData;
+}
 
 function createToggle(ctx: ICtx): b.IBobrilNode {
     return b.style(

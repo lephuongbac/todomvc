@@ -16,12 +16,11 @@ export interface ITodo extends f.IComponentState {
 export const createDefaultTodosState = (): ITodosState => {
     return {
         nowShowing: ALL_TODOS,
-        editedTodo: { id: null, name: '', isDone: false },
-        todos: [
-        ]
+        editedTodo: { id: 0, name: '', isDone: false },
+        todos: []
     }
 }
 
 export const createDefaultTodo = (): ITodo => {
-    return { id: 0, name: null, isDone: false };
+    return { id: 0, name: '', isDone: false };
 }
