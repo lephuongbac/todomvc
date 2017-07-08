@@ -1,5 +1,5 @@
 import * as b from 'bobril';
-import * as gui from '../components/gui';
+import * as gui from './../../components/gui';
 
 export interface IData {
     value?: string;
@@ -52,7 +52,6 @@ function createDeleteButton(ctx: ICtx): b.IBobrilNode {
     );
 }
 
-const viewStyle = b.styleDef('view');
 const toggleStyle = b.styleDef('toggle');
 const destroyStyle = b.styleDef('destroy');
 const completedStyle = b.styleDef('completed');

@@ -1,9 +1,9 @@
 import * as b from 'bobril';
 import * as f from 'bobflux';
-import { ITodosState } from './state';
-import { link, button } from './../components/gui';
-import * as todoAction from './actions/todo';
-import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from './constants';
+import { ITodosState } from './../state';
+import { link, button } from './../../components/gui';
+import * as todoAction from './../actions/todo';
+import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from './../constants';
 
 export default f.createComponent<ITodosState>({
     render(ctx: f.IContext<ITodosState>, me: b.IBobrilNode) {

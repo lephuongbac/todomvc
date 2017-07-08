@@ -1,11 +1,11 @@
 import * as b from 'bobril';
 import * as f from 'bobflux';
-import * as state from './state';
+import * as state from './../state';
 import { default as todoList } from './todoList';
 import { default as todoItem } from './todoItem';
 import { default as toggleCheckbox } from './toggleCheckbox';
-import * as todoAction from './actions/todo';
-import { ACTIVE_TODOS, COMPLETED_TODOS } from './constants';
+import * as todoAction from './../actions/todo';
+import { ACTIVE_TODOS, COMPLETED_TODOS } from './../constants';
 
 export interface IData {
     value?: b.IBobrilChildren;

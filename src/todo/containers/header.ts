@@ -1,9 +1,9 @@
 
 import * as b from 'bobril';
 import * as f from 'bobflux';
-import { ITodo } from './state';
-import { input } from './../components/gui';
-import * as todoAction from './actions/todo';
+import { ITodo } from './../state';
+import { input } from './../../components/gui';
+import * as todoAction from './../actions/todo';
 
 export interface IData {
     value?: b.IBobrilChildren;

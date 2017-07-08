@@ -1,9 +1,9 @@
 import * as b from 'bobril';
 import * as f from 'bobflux';
 import * as state from './state';
-import { default as header } from './header';
-import { default as footer } from './footer';
-import { default as main } from './main';
+import { default as header } from './containers/header';
+import { default as footer } from './containers/footer';
+import { default as main } from './containers/main';
 import * as c from './cursor';
 import * as todoAction from './actions/todo';
 
