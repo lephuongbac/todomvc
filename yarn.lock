@@ -24,8 +24,8 @@ fun-model@5.*:
   resolved "https://registry.yarnpkg.com/fun-model/-/fun-model-5.0.1.tgz#a69da07ab6dd17065d56f74a6b724fa22c45920f"
 
 moment@^2.10.6:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.27.0.tgz#8bff4e3e26a236220dfe3e36de756b6ebaa0105d"
 
 todomvc-app-css@*:
   version "2.1.0"
